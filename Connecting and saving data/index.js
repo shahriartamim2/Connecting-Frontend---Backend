@@ -46,14 +46,16 @@ const  connectToDatabase = async()=> {
     }
 }
 
-app.get('/', async (req, res) => {
-    try {
-        await connectToDatabase();
-        res.send('Connected to MongoDB successfully');
-    } catch (err) {
-        res.status(500).send('Failed to connect to MongoDB');
-    }
-});
+connectToDatabase();
+
+// app.get('/', async (req, res) => {
+//     try {
+//         await connectToDatabase();
+//         res.send('Connected to MongoDB successfully');
+//     } catch (err) {
+//         res.status(500).send('Failed to connect to MongoDB');
+//     }
+// });
 
 app.post('/users', async (req, res) => {
     try {
